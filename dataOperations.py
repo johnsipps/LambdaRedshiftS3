@@ -17,8 +17,9 @@ def main():
     cur = con.cursor()
     
     try:
-        TargetTableStr		="""'jh_dim_customer'""" 
+
         TargetTable 		="jh_dim_customer" 
+        TargetTableStr		="'"+TargetTable+"'" 
         
         queryCheckPrev="SELECT count(1) FROM svv_tables WHERE table_name=" + TargetTableStr
         #print(queryCheckPrev)
