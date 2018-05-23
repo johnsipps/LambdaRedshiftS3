@@ -9,9 +9,9 @@ from botocore.exceptions import ClientError
     
 def main(value):
 
-    SENDER = "Sender Name <sippsin@gmail.com>"
+    SENDER = "Sender Name <Sender@gmail.com>"
     #print(SENDER)
-    RECIPIENT = "sippsin@gmail.com"
+    RECIPIENT = "recepient@gmail.com"
     AWS_REGION = "us-east-1"
     SUBJECT = "S3:Redshift Triggered- Email notification"
     BODY_TEXT = ("Amazon S3 Put -Redshift automation\r\n"
