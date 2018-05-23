@@ -6,7 +6,7 @@
 import jdbConnection
 import jemailRS
 
-def dataOperations():
+def main():
 	#----------------------------------------------------
 	# Connect to the database
 	#----------------------------------------------------
@@ -17,9 +17,10 @@ def dataOperations():
     cur = con.cursor()
     
     try:
-        TargetTable		="""'jh_dim_customer'""" 
+        TargetTableStr		="""'jh_dim_customer'""" 
+        TargetTable 		="jh_dim_customer" 
         
-        queryCheckPrev="SELECT count(1) FROM svv_tables WHERE table_name=" + TargetTable
+        queryCheckPrev="SELECT count(1) FROM svv_tables WHERE table_name=" + TargetTableStr
         #print(queryCheckPrev)
         
         cur.execute(queryCheckPrev);
@@ -27,7 +28,11 @@ def dataOperations():
         rc = cur.fetchone()
         
         if rc[0]==1:
-            jemailRS.main(str(TargetTable))
+            print(TargetTable)
+            queryExec="select count(1) from " + TargetTable
+            cur.execute(queryExec);
+            rc = cur.fetchone()
+            jemailRS.main(str(TargetTable)+ " contains "+str(rc[0])+" records")
         else:    
             print(str(TargetTable)+" does not exist..")
 

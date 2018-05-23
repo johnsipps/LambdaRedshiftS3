@@ -4,12 +4,12 @@ Created on Wed May 23 15:35:20 2018
 
 @author: John
 """
-import dataOperations
+import dataOperations   
 
 def lambda_handler(event, context):
-    
+ 
     print('start')
-    dataOperations()
+    dataOperations.main()
     print('end')
     
     return 'Hello from Lambda'
