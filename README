@@ -3,3 +3,5 @@ This script connects to redshift via Lambda function.
 Lambda trigger ==> Upload file with prefix "Load" and suffix as "success"
 Connects to redshift, checks the existence of a table
 If table exists it checks the record count and sends an email with the count
+
+Note: Unzip zip file psycopg2 before executing
